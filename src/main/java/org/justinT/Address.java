@@ -11,6 +11,7 @@ public class Address {
     private String postalCode;
 
 
+
     /**
  * checks if a postal code is valid
  * @param postalCode the postal code to check
