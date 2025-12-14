@@ -1,4 +1,5 @@
 package org.justinT;
+import java.util.ArrayList;
 
 public class Student {
 
@@ -23,12 +24,52 @@ public class Student {
         this.registeredCourses = new ArrayList<>();
     }
 
-    public boolean registerCourse() {
-
+    /**
+     * registers a course
+     * adds the course to the student's registeredCourses list
+     * adds the student` to the course's registeredStudents list
+     * appends a null for the scores of each assignment of the course
+     * If the course is already registered, directly returns false without adding anything
+     * @param course is the course to register
+     * @return true if it is now registered, false if already registered
+     */
+    public boolean registerCourse(Course course) {
+        if (registeredCourses.contains(course)) {
+            return false;
+        }
+        registeredCourses.add(course);
+        if (course.getRegisteredStudents().contains(this)) {
+            course.getRegisteredStudents().add(this);
+        }
+        for (Assignment assignment : course.getAssignments()) {
+            if (assignment.getScores().size() < course.getRegisteredStudents().size()) {
+                        assignment.getScores().add(null);
+            }
+        }
+        return true;
     }
 
-    public boolean dropCourse() {
+    /**
+     * drops a course
+     * removes the course from the student's registeredCourses list
+     * removes the student from the course's registeredStudents list
+     * @param course is the course to drop
+     * @return true if it is now dropped, false if not registered
+     */
+    public boolean dropCourse(Course course) {
+        if (!registeredCourses.contains(course)) {
+            return false;
+        }
+        int indx = course.getRegisteredStudents().indexOf(this);
+        registeredCourses.remove(course);
+        course.getRegisteredStudents().remove(this);
+        for (Assignment assignment : course.getAssignments()) {
+            if (indx >= 0 && indx < assignment.getScores().size()) {
+                assignment.getScores().remove(indx);
+            }
+        }
 
+        return true;
     }
 
     public String toSimplifiedString() {
