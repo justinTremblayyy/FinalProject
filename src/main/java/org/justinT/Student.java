@@ -46,7 +46,7 @@ public class Student {
             return false;
         }
         registeredCourses.add(course);
-        if (course.getRegisteredStudents().contains(this)) {
+        if (!course.getRegisteredStudents().contains(this)) {
             course.getRegisteredStudents().add(this);
         }
         for (Assignment assignment : course.getAssignments()) {
@@ -93,7 +93,14 @@ public class Student {
     }
 
 
+    @Override
     public String toString() {
-        }
-
+        return  "Student; \n " +
+                "studentId: " + studentId + "\n" +
+                "studentName: " + studentName + "\n" +
+                "department: " + (department != null ? department : "unavailable") + "\n" +
+                "gender: " + gender + "\n" +
+                "address: " + address + "\n" +
+                "registeredCourses: " + registeredCourses.size();
+    }
 }
