@@ -21,10 +21,25 @@ public class Department {
         }
     }
 
-
+    /**
+     * checks if department name is valid or not
+     * @param departmentName name to be verified
+     * @return true if valid, false if not
+     */
     public static boolean isDepartmentNameValid(String departmentName) {
+        if (departmentName == null || departmentName.trim().isEmpty()) {
+            return false;
+            }
 
+        for (int i = 0; i < departmentName.length(); i++) {
+            char ch = departmentName.charAt(i);
+                if (!Character.isLetter(ch) && ch != ' ') {
+                    return false;
+                }
+        }
+
+            return true;
     }
+}
 
 
-    }
