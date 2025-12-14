@@ -1,5 +1,13 @@
 package org.justinT;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
+
+@EqualsAndHashCode
+@Getter
+@Setter
 
 public class Student {
 
@@ -72,11 +80,20 @@ public class Student {
         return true;
     }
 
+    /**
+     * converts a student to a simple string with only the studentId, the studentName, and departmentName
+     * @return the simplified String
+     */
     public String toSimplifiedString() {
+        if (department == null) {
+            return studentId + " - " + studentName + "unavailable";
+        }
+        return studentId + " - " + studentName + department.getDepartmentName();
 
     }
+
 
     public String toString() {
+        }
 
-    }
 }
