@@ -16,4 +16,5 @@ public static boolean isPostalCodeValid(String postalCode) {
 
 public Address(int streetNo, String street, String city, Province province, String postalCode) {
 
+
 }
