@@ -21,7 +21,10 @@ This final project of Introduction to Programming is a java program made to oper
 - Represents a student with an Id, name, gender, address, department, and registered courses.
 - It validates if a student successfully registers or drop a course
 
-4. Assignment
+### 4. Assignment
+
+- Represents an assignment with an Id, name, weight, scores and average scores.
+- It provides methods to calculate average scores and generate random scores.
 5. Course
 6. Util
 7. UnitTesting
