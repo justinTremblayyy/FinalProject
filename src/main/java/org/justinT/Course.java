@@ -34,6 +34,7 @@ public class Course {
 
     /**
      * checks if the sum of all assignment weights equals 100
+     * @return true if total assignment weight is 100%, false if not
      */
     public boolean isAssignmentWeightValid() {
         double sum = 0;
@@ -43,6 +44,12 @@ public class Course {
         return Math.abs(sum - 100.0) < 0.0001;
     }
 
+    /**
+     * adds a student to the student list of the course
+     * also add a new null element to each assignment
+     * @param student the student to be registered
+     * @return true if the student is successfully registered, false if the student is already registered
+     */
     public boolean registerStudent(Student student){
         if (student == null || registeredStudents.contains(student)) {
             return false;
@@ -56,6 +63,10 @@ public class Course {
         return true;
     }
 
+    /**
+     * Calculates the weighted final average score for each student.
+     * @return final weighted scores
+     */
     public int[] calcStudentsAverage(){
         int[] finalScores = new int[registeredStudents.size()];
 
@@ -73,6 +84,10 @@ public class Course {
         return finalScores;
     }
 
+    /**
+     * Adds a new assignment to the course.
+     * @return true if the assignment is added successfully, false if not
+     */
     public boolean addAssignment(String assignmentName, double weight, int maxScore) {
         Assignment ass = new Assignment(assignmentName, weight);
 
@@ -84,8 +99,13 @@ public class Course {
         return true;
     }
 
+    /**
+     * Generates random scores for each assignment and student.
+     */
     public void generateScores(){
-
+            for (Assignment ass : assignments) {
+                ass.generateRandomScore();
+            }
     }
 
     public void displayScores(){
