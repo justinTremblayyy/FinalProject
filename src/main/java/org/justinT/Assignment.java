@@ -23,11 +23,31 @@ public class Assignment {
         this.assignmentId = "A" + String.format("%03d", nextId++);
     }
 
+    /**
+     * calculates the average score for the assignment
+     * @return the average score
+     */
     public double calcAssignmentAvg(){
-
+        if ( scores.isEmpty() || scores == null) {
+            return 0;
+        }
+        int sum = 0;
+        for (Integer score : scores) {
+            if (score != null) {
+                sum += score;
+            }
+        }
+        return (double) sum / scores.size();
     }
 
+    /**
+     * generates random scores for all students in an assignment
+     */
     public void generateRandomScore() {
+        if (scores == null) return;
+
+        Random random = new Random();
+
 
     }
 
