@@ -1,5 +1,13 @@
 package org.justinT;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
+@EqualsAndHashCode
+@Getter
+@Setter
+
 public class Department {
 
     private String departmentId;
