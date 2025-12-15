@@ -35,5 +35,10 @@ This final project of Introduction to Programming is a java program made to oper
 - Represents a course with an ID, name, credits, department, assignments, and registered students.
 - Includes methods to add assignments, register students, validate assignment weights, generate scores, and display results in a table.
 - ex: Introduction to programming
-6. Util
+
+### 6. Util
+
+- Provides a method to convert Strings to title case for better formatting of names
+- ex: Pure And Applied Science
+
 7. UnitTesting
