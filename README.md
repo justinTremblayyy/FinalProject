@@ -41,4 +41,6 @@ This final project of Introduction to Programming is a java program made to oper
 - Provides a method to convert Strings to title case for better formatting of names
 - ex: Pure And Applied Science
 
-7. UnitTesting
+### 7. UnitTesting
+
+- Tests methods to ensure that everything works as expected using JUnit.
