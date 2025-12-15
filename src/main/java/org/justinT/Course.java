@@ -74,7 +74,14 @@ public class Course {
     }
 
     public boolean addAssignment(String assignmentName, double weight, int maxScore) {
+        Assignment ass = new Assignment(assignmentName, weight);
 
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            ass.getScores().add(null);
+        }
+
+        assignments.add(ass);
+        return true;
     }
 
     public void generateScores(){
