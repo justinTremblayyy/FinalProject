@@ -3,6 +3,7 @@ package org.justinT;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.ArrayList;
 
 @EqualsAndHashCode
@@ -18,8 +19,17 @@ public class Course {
     private ArrayList<Student> registeredStudents;
     private static int nextId = 1;
 
-    public Course(){
+    /**
+     * constructor
+     */
+    public Course(String courseName, double credits, Department department){
+        this.courseName = courseName;
+        this.credits = credits;
+        this.department = department;
+        this.assignments = new ArrayList<>();
+        this.registeredStudents = new ArrayList<>();
 
+        this.courseId = "C-" + department.getDepartmentId() + "-" + String.format("%02d", nextId++);
     }
 
     public boolean isAssignmentWeightValid() {
