@@ -15,7 +15,12 @@ This final project of Introduction to Programming is a java program made to oper
 
 - Represents a department with an Id and a Name
 - It Validates if department names contain only letters and spaces.
-3. Student
+
+### 3. Student
+
+- Represents a student with an Id, name, gender, address, department, and registered courses.
+- It validates if a student successfully registers or drop a course
+
 4. Assignment
 5. Course
 6. Util
