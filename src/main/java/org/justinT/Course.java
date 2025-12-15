@@ -108,8 +108,43 @@ public class Course {
             }
     }
 
-    public void displayScores(){
+    /**
+     * displays the scores of a course in a table
+     * displays with the assignment averages and student weighted average
+     */
+    public void displayScores() {
+        System.out.println("Course: " + courseName + " (" + courseId + ")");
 
+        System.out.print(String.format("%-20s", ""));
+        for (Assignment ass : assignments) {
+            System.out.print(String.format("%-15s", ass.getAssignmentName()));
+        }
+        System.out.println("Final");
+
+        int[] finalScores = calcStudentsAverage();
+
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            Student stud = registeredStudents.get(i);
+
+            System.out.print(String.format("%-20s", stud.getStudentName()));
+
+            for (Assignment ass : assignments) {
+                Integer score = ass.getScores().get(i);
+                if (score == null) {
+                    System.out.print(String.format("%-15s", "-"));
+                } else {
+                    System.out.print(String.format("%-15d", score));
+                }
+            }
+
+            System.out.println(finalScores[i]);
+
+        }
+        System.out.print(String.format("%-20s", "Average"));
+        for (Assignment ass : assignments) {
+            System.out.print(String.format("%-15.0f", ass.calcAssignmentAvg()));
+        }
+        System.out.println();
     }
 
     public String toSimplifiedString(){
