@@ -1,11 +1,13 @@
 package org.justinT;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+@EqualsAndHashCode
 @Getter
 @Setter
 
@@ -28,7 +30,7 @@ public class Assignment {
      * @return the average score
      */
     public double calcAssignmentAvg(){
-        if ( scores.isEmpty() || scores == null) {
+        if (scores == null || scores.isEmpty()) {
             return 0;
         }
         int sum = 0;
@@ -44,7 +46,9 @@ public class Assignment {
      * generates random scores for all students in an assignment
      */
     public void generateRandomScore() {
-        if (scores == null) return;
+        if (scores == null) {
+            scores = new ArrayList<>();
+        }
 
         Random random = new Random();
 
