@@ -2,7 +2,14 @@ package util;
 
 public class Util {
 
-
+    /**
+     * converts each word in a string to title case
+     Assumes:
+     * - Words are separated by spaces
+     * - Extra spaces are collapsed to single spaces in output
+     * @param str input string
+     * @return title-cased string
+     */
     public static String toTitleCase(String str) {
         if (str == null || str.trim().isEmpty()) {
             return "";
