@@ -1,9 +1,11 @@
 package org.justinT;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
 
+@EqualsAndHashCode
 @Getter
 @Setter
 

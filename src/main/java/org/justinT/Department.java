@@ -6,12 +6,11 @@ import lombok.Setter;
 
 @EqualsAndHashCode
 @Getter
-@Setter
 
 public class Department {
 
     private String departmentId;
-    private String departmentName;
+    @Setter private String departmentName;
     private static int nextId = 1;
 
 

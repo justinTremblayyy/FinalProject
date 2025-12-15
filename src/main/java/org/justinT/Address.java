@@ -1,5 +1,14 @@
 package org.justinT;
 
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
+@EqualsAndHashCode
+@Getter
+@Setter
+
 public class Address {
     public enum Province {
         QC, ON, NS, NB, MB, BC, PE, SK, AB, NL, NT, YT, NU
