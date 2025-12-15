@@ -48,6 +48,24 @@ public class Assignment {
 
         Random random = new Random();
 
+        for (int i = 0; i < scores.size(); i++) {
+            int rand = random.nextInt(11);
+            int score;
+
+            if (rand == 0) {
+                score = random.nextInt(60);
+            } else if (rand <= 2) {
+                score = 60 + random.nextInt(10);
+            } else if (rand <= 4) {
+                score = 70 + random.nextInt(10);
+            } else if (rand <= 8) {
+                score = 80 + random.nextInt(10);
+            } else {
+                score = 90 + random.nextInt(11);
+            }
+
+            scores.set(i, score);
+        }
 
     }
 
