@@ -32,6 +32,27 @@ public class UnitTesting {
 
     }
 
+// Department Class
+@Test
+@DisplayName("Valid department name: Electrical Engineering")
+void testValidDepartmentName() {
+    String name = "Electrical Engineering";
+    boolean expected = true;
+    boolean actual = Department.isDepartmentNameValid(name);
+
+    Assertions.assertEquals(expected, actual);
+}
+
+    @Test
+    @DisplayName("Invalid department name: BioChem_101")
+    void testInvalidDepartmentName() {
+        String name = "BioChem_101";
+        boolean expected = false;
+        boolean actual = Department.isDepartmentNameValid(name);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 
 
 }
