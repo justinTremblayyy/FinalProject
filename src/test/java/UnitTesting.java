@@ -69,6 +69,40 @@ public class UnitTesting {
         Assertions.assertEquals(expected, actual);
     }
 
+// Course Class
+    @Test
+    @DisplayName("Weights sum to 90")
+    void testWeightsSum() {
+        Department d = new Department("Electrical Engineering");
+        Course c = new Course("Circuits", 3.0, d);
 
+        c.addAssignment("Labs", 30, 100);
+        c.addAssignment("Midterm", 20, 100);
+        c.addAssignment("Final", 40, 100); // total = 90
+
+        boolean expected = false;
+        boolean actual = c.isAssignmentWeightValid();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    @DisplayName("Register student twice")
+    void testStudentRegister() {
+        Department d = new Department("Physics");
+        Course c = new Course("Thermodynamics", 3.0, d);
+
+        Address a = new Address(221, "Bob", "Ottawa",
+                Address.Province.ON, "K1A0B1");
+
+        Student s = new Student("Ben", Student.Gender.MALE, a, d);
+
+        boolean first = c.registerStudent(s);
+        boolean second = c.registerStudent(s);
+
+        Assertions.assertTrue(first);
+        Assertions.assertFalse(second);
+    }
 
 }
