@@ -32,11 +32,21 @@ public class Course {
         this.courseId = "C-" + department.getDepartmentId() + "-" + String.format("%02d", nextId++);
     }
 
+    /**
+     * checks if the sum of all assignment weights equals 100
+     */
     public boolean isAssignmentWeightValid() {
-
+        double sum = 0;
+        for (Assignment ass : assignments) {
+            sum += ass.getWeight();
+        }
+        return Math.abs(sum - 100.0) < 0.0001;
     }
 
     public boolean registerStudent(Student student){
+        if (student == null || registeredStudents.contains(student)) {
+            return false;
+        }
 
     }
 
