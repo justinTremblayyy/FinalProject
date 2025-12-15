@@ -71,7 +71,10 @@ public class Assignment {
 
     @Override
     public String toString() {
-
+        return "Assignment; \n " +
+                "assignment Id: " + assignmentId + "\n" +
+                "assignment Name: " + assignmentName + "\n" +
+                "weight: " + weight;
     }
 
 }
