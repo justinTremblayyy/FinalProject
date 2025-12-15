@@ -1,11 +1,9 @@
 package org.justinT;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
 
-@EqualsAndHashCode
 @Getter
 @Setter
 
@@ -42,19 +40,16 @@ public class Student {
      * @return true if it is now registered, false if already registered
      */
     public boolean registerCourse(Course course) {
-        if (registeredCourses.contains(course)) {
+        if (registeredCourses.contains(course) || course == null) {
             return false;
         }
-        registeredCourses.add(course);
-        if (!course.getRegisteredStudents().contains(this)) {
-            course.getRegisteredStudents().add(this);
+
+        if (course.registerStudent(this)) {
+            registeredCourses.add(course);
+            return true;
         }
-        for (Assignment assignment : course.getAssignments()) {
-            if (assignment.getScores().size() < course.getRegisteredStudents().size()) {
-                        assignment.getScores().add(null);
-            }
-        }
-        return true;
+       return false;
+
     }
 
     /**
@@ -88,7 +83,7 @@ public class Student {
         if (department == null) {
             return studentId + " - " + studentName + "unavailable";
         }
-        return studentId + " - " + studentName + department.getDepartmentName();
+        return studentId + " - " + studentName + " - " + department.getDepartmentName();
 
     }
 
