@@ -33,22 +33,38 @@ public class UnitTesting {
     }
 
 // Department Class
-@Test
-@DisplayName("Valid department name: Electrical Engineering")
-void testValidDepartmentName() {
-    String name = "Electrical Engineering";
-    boolean expected = true;
-    boolean actual = Department.isDepartmentNameValid(name);
-
-    Assertions.assertEquals(expected, actual);
-}
-
     @Test
-    @DisplayName("Invalid department name: BioChem_101")
-    void testInvalidDepartmentName() {
-        String name = "BioChem_101";
-        boolean expected = false;
+    @DisplayName("Valid department name: Electrical Engineering")
+    void testValidDepartmentName() {
+        String name = "Electrical Engineering";
+        boolean expected = true;
         boolean actual = Department.isDepartmentNameValid(name);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+        @Test
+        @DisplayName("Invalid department name: BioChem_101")
+        void testInvalidDepartmentName() {
+            String name = "BioChem_101";
+            boolean expected = false;
+            boolean actual = Department.isDepartmentNameValid(name);
+
+            Assertions.assertEquals(expected, actual);
+    }
+
+// Assignment Class
+    @Test
+    @DisplayName("Average calculation on assignment")
+    void testAssignmentAverage() {
+        Assignment assignment = new Assignment("Lab Work", 40);
+        ArrayList<Integer> scores = new ArrayList<>();
+        scores.add(70);
+        scores.add(95);
+        assignment.setScores(scores);
+
+        double expected = 82.5;
+        double actual = assignment.calcAssignmentAvg();
 
         Assertions.assertEquals(expected, actual);
     }
