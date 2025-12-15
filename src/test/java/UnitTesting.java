@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Assertions;
 import org.justinT.*;
-
+import util.Util;
 
 
 public class UnitTesting {
@@ -105,4 +105,14 @@ public class UnitTesting {
         Assertions.assertFalse(second);
     }
 
+// Unit Class
+    @Test
+    @DisplayName("Convert string to Title Case")
+    void testToTitleCase() {
+        String input = "pure AND applied science";
+        String expected = "Pure And Applied Science";
+        String actual = Util.toTitleCase(input);
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
