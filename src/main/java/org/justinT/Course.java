@@ -47,11 +47,30 @@ public class Course {
         if (student == null || registeredStudents.contains(student)) {
             return false;
         }
+        registeredStudents.add(student);
 
+        for (Assignment ass : assignments) {
+            ass.getScores().add(null);
+        }
+
+        return true;
     }
 
     public int[] calcStudentsAverage(){
+        int[] finalScores = new int[registeredStudents.size()];
 
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            double total = 0;
+
+                for (Assignment ass : assignments) {
+                    Integer score = ass.getScores().get(i);
+                    if (score != null) {
+                        total += score * ass.getWeight() / 100.0;
+                    }
+                }
+            finalScores[i] = (int) Math.round(total);
+        }
+        return finalScores;
     }
 
     public boolean addAssignment(String assignmentName, double weight, int maxScore) {
