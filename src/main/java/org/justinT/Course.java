@@ -157,10 +157,42 @@ public class Course {
 
     }
 
+    /**
+     * converts a course to a string that contains everything we need
+     * @return string representation of the course
+     */
+    @Override
     public String toString(){
+        String result = "   Course;\n" +
+                "courseId: " + courseId + "\n" +
+                "courseName: " + courseName + "\n" +
+                "credits: " + credits + "\n" +
+                "department: " + (department != null ? department.getDepartmentName() : "unavailable") + "\n";
 
+        result += "Assignments:\n";
+        if (assignments.isEmpty()) {
+            result += "none\n";
+        } else {
+            for (Assignment ass : assignments) {
+                result += ass.getAssignmentId() + " - " +
+                        ass.getAssignmentName() + " (" +
+                        ass.getWeight() + "%)\n";
+            }
+        }
+        result += "Registered Students:\n";
+        if (registeredStudents.isEmpty()) {
+            result += "none\n";
+        } else {
+            for (Student stud : registeredStudents) {
+                result += stud.getStudentId() + " - " +
+                        stud.getStudentName() + " - " +
+                        (stud.getDepartment() != null
+                                ? stud.getDepartment().getDepartmentName()
+                                : "unavailable") + "\n";
+            }
+        }
+        result += "Assignment weight valid: " + isAssignmentWeightValid();
+
+        return result;
     }
-
-
-
 }
