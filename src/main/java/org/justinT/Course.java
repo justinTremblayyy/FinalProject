@@ -147,7 +147,13 @@ public class Course {
         System.out.println();
     }
 
+    /**
+     * converts a course to a simple string
+     * with only the courseId, courseName, credits, and departmentName
+     * @return a simplified string representation of the course
+     */
     public String toSimplifiedString(){
+        return courseId + " - " + courseName + " - " + credits + " - " + (department != null ? department.getDepartmentName() : " * unavailable * ");
 
     }
 
